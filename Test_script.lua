@@ -23,19 +23,6 @@ openBtn.Active = true
 openBtn.Draggable = true
 Instance.new("UICorner", openBtn).CornerRadius = UDim.new(1,0)
 
---// BOTÃO DA MIRA CENTRAL (MÓVEL)
-local crossBtn = Instance.new("TextButton", gui)
-crossBtn.Size = UDim2.fromOffset(36,36)
-crossBtn.Position = UDim2.fromScale(0.92,0.62)
-crossBtn.Text = "🎯"
-crossBtn.Font = Enum.Font.GothamBlack
-crossBtn.TextSize = 20
-crossBtn.TextColor3 = Color3.new(1,1,1)
-crossBtn.BackgroundColor3 = Color3.fromRGB(30,30,30)
-crossBtn.Active = true
-crossBtn.Draggable = true
-Instance.new("UICorner", crossBtn).CornerRadius = UDim.new(1,0)
-
 --// FRAME PRINCIPAL (MENOR E MÓVEL)
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.fromOffset(180,260)
@@ -85,26 +72,6 @@ local targetPlayer = nil
 local espObjects = {}
 local playerButtons = {}
 local crossEnabled = false -- mira independente
-
---// MIRA CENTRAL (IMAGEM FIXA)
-local cross = Instance.new("ImageLabel", gui)
-cross.Size = UDim2.fromOffset(40,40)
-cross.AnchorPoint = Vector2.new(0.5,0.5) -- Mantenha como 0.5, 0.5 para centralizar o centro da imagem
-cross.Position = UDim2.fromScale(0.5,0.5) -- Posição central da tela
-cross.Image = "rbxassetid://17431027" -- <== NOVO ID DA IMAGEM
-cross.BackgroundTransparency = 1
-cross.Visible = false
-
--- ... (o resto do seu script) ...
-
-
-
--- Toggle da mira via botão próprio
-crossBtn.MouseButton1Click:Connect(function()
-	crossEnabled = not crossEnabled
-	cross.Visible = crossEnabled
-	crossBtn.BackgroundColor3 = crossEnabled and Color3.fromRGB(80,200,120) or Color3.fromRGB(30,30,30)
-end)
 
 --// PLAYER MAIS PRÓXIMO
 local function getNearestPlayer()
